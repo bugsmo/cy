@@ -38,7 +38,7 @@ type UpdateTime struct{ mixin.Schema }
 
 func (UpdateTime) Fields() []ent.Field {
 	return []ent.Field{
-		field.Time("create_time").
+		field.Time("update_time").
 			Comment("更新时间").
 			Immutable().
 			Optional().
@@ -52,7 +52,7 @@ type DeleteTime struct{ mixin.Schema }
 
 func (DeleteTime) Fields() []ent.Field {
 	return []ent.Field{
-		field.Time("create_time").
+		field.Time("delete_time").
 			Comment("删除时间").
 			Immutable().
 			Optional().
