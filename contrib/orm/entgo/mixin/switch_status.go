@@ -6,9 +6,9 @@ import (
 	"entgo.io/ent/schema/mixin"
 )
 
-var _ ent.Mixin = (*SwithStatus)(nil)
+var _ ent.Mixin = (*SwitchStatus)(nil)
 
-type SwithStatus struct{ mixin.Schema }
+type SwitchStatus struct{ mixin.Schema }
 
 /*
 在PostgreSQL下，还需要为此创建一个Type，否则无法使用。
@@ -20,7 +20,7 @@ CREATE TYPE switch_status AS ENUM (
 	'ON'
 	);
 */
-func (SwithStatus) Fields() []ent.Field {
+func (SwitchStatus) Fields() []ent.Field {
 	return []ent.Field{
 		/**
 		在PostgreSQL下，还需要为此创建一个Type，否则无法使用。
