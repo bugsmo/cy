@@ -1,0 +1,37 @@
+name: ChunYu AutoCreating SubMod Tags
+
+on:
+  push:
+    # Sequence of patterns matched against refs/tags
+    tags:
+    - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
+
+jobs:
+  AutoCreatingTags:
+    name: Auto Creating Tags
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Github Code
+        uses: actions/checkout@v4
+
+      - name: Auto Creating Tags For Contrib Packages
+        env:
+          # @see https://docs.github.com/cn/actions/reference/authentication-in-a-workflow#about-the-github_token-secret
+          GITHUB_TOKEN: ${{ secrets.CY_TOKEN }}
+        run: |
+          git config --global user.email "kalandramo@gmail.com"
+          git config --global user.name  "kalandramo"
+          
+          # auto create tags for contrib packages.
+          for file in `find contrib -name go.mod`; do
+              tag=$(dirname $file)/$GITHUB_REF_NAME
+              git tag $tag
+              git push origin $tag
+          done
+          
+          # auto create tag for cli tool
+          for file in `find cmd -name go.mod`; do
+              tag=$(dirname $file)/$GITHUB_REF_NAME
+              git tag $tag
+              git push origin $tag
+          done
