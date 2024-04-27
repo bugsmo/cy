@@ -2,7 +2,7 @@ package entgo
 
 import (
 	"entgo.io/ent/dialect/sql"
-	"github.com/tx7do/go-utils/stringcase"
+	"github.com/bugsmo/cy/utils/stringcase"
 )
 
 func BuildFieldSelect(s *sql.Selector, fields []string) {

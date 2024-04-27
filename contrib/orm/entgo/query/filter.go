@@ -8,9 +8,8 @@ import (
 	"entgo.io/ent/dialect"
 	"entgo.io/ent/dialect/sql"
 
+	"github.com/bugsmo/cy/utils/stringcase"
 	"github.com/go-kratos/kratos/v2/encoding"
-
-	"github.com/bugsmo/cy/utils/text/stringcase"
 )
 
 type FilterOp int
