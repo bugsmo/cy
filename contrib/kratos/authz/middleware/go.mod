@@ -2,10 +2,6 @@ module github.com/bugsmo/cy/contrib/kratos/authz/middleware
 
 go 1.21.6
 
-replace github.com/bugsmo/cy/contrib/kratos/authz => ../
-
-replace github.com/bugsmo/cy/contrib/kratos/authz/engine/casbin => ../engine/casbin
-
 require (
 	github.com/bugsmo/cy/contrib/kratos/authz v0.0.0-00010101000000-000000000000
 	github.com/bugsmo/cy/contrib/kratos/authz/engine/casbin v0.0.0-00010101000000-000000000000
